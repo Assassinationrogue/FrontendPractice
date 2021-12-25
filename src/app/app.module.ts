@@ -9,20 +9,32 @@ import { ListComponent } from './components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddComponent } from './components/add/add.component';
 
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CardModule } from 'primeng/card';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
 
+const primeng = [
+  ButtonModule,
+  CheckboxModule,
+  CardModule,
+  ConfirmDialogModule,
+  TooltipModule,
+  ToastModule,
+];
 @NgModule({
   declarations: [
     AppComponent,
     DisplayComponent,
     FormComponent,
     ListComponent,
-    AddComponent
+    AddComponent,
+    ...primeng,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
