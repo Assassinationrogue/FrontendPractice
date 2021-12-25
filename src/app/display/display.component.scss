@@ -2,7 +2,18 @@
   top: 50%;
   left: 50%;
   position: fixed;
-//   -ms-transform: translateX(-50%) translateY(-50%);
-//   -webkit-transform: translate(-50%, -50%);
+  //   -ms-transform: translateX(-50%) translateY(-50%);
+  //   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+
+  &__header {
+    display: block;
+    //background-color: aqua;
+    margin: 5% 26.77px;
+    text-align: center;
+    &-title {
+        //text-shadow: 3px 1px 5px grey;
+        
+    }
+  }
 }
