@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  counter: number = 0;
+  counter: number = 1;
   constructor() {}
   listOfTask = [];
 
