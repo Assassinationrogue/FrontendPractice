@@ -15,6 +15,7 @@ import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
 
 const primeng = [
   ButtonModule,
@@ -23,6 +24,7 @@ const primeng = [
   ConfirmDialogModule,
   TooltipModule,
   ToastModule,
+  InputTextModule
 ];
 @NgModule({
   declarations: [
