@@ -11,9 +11,15 @@
     //background-color: aqua;
     margin: 5% 26.77px;
     text-align: center;
+
+    &-hr{
+        width: 80%;
+        transform: translate(13.66%,0%);
+        position: relative;
+    }
     &-title {
         //text-shadow: 3px 1px 5px grey;
-        
+
     }
   }
 }
