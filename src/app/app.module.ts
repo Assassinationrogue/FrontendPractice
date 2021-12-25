@@ -31,9 +31,8 @@ const primeng = [
     FormComponent,
     ListComponent,
     AddComponent,
-    ...primeng,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ...primeng],
   providers: [],
   bootstrap: [AppComponent],
 })
