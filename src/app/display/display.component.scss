@@ -1,6 +1,7 @@
 .card {
   top: 50%;
   left: 50%;
+  padding: 10px 12px;
   position: fixed;
   //   -ms-transform: translateX(-50%) translateY(-50%);
   //   -webkit-transform: translate(-50%, -50%);
@@ -12,14 +13,30 @@
     margin: 5% 26.77px;
     text-align: center;
 
-    &-hr{
-        width: 80%;
-        transform: translate(13.66%,0%);
-        position: relative;
+    &-hr {
+      width: 80%;
+      transform: translate(13.66%, 0%);
+      position: relative;
     }
     &-title {
-        //text-shadow: 3px 1px 5px grey;
-
+      //text-shadow: 3px 1px 5px grey;
     }
+  }
+}
+
+.search {
+  //background-color: bisque;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: translate(13.66%, 0%);
+
+  &__bar {
+    width: 130%;
+  }
+
+  &__button {
+    margin: 0 15%;
   }
 }

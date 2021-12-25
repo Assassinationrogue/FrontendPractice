@@ -6,11 +6,26 @@
           <h2>To do list app</h2>
         </span>
       </div>
-      <hr class="card__header-hr">
+      <hr class="card__header-hr" />
     </ng-template>
     <ng-template pTemplate="body">
-        <input type="text" pInput>
+      <div class="search">
+        <div class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            pInputText
+            placeholder="Search"
+            class="search__bar"
+          />
+        </div>
+        <div class="search__button">
+          <button pButton type="button" label="Search"></button>
+        </div>
+        <div class="search__filter">
+          <button pButton type="button" label="Filter"></button>
+        </div>
+      </div>
     </ng-template>
-    
   </p-card>
 </div>
