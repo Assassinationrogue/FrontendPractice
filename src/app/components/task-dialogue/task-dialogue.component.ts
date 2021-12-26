@@ -1,3 +1,4 @@
+import { SharedService } from './../../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
@@ -24,7 +25,7 @@ export class TaskDialogueComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public formAttributes: SharedService) {}
 
   ngOnInit(): void {
     this.taskDialogueForm = this.defineForm();
@@ -46,5 +47,14 @@ export class TaskDialogueComponent implements OnInit {
     });
     console.log(formControls);
     return this.fb.group(formControls);
+  }
+
+  /**
+   * Displays label name
+   * @param fieldName string
+   * @returns string
+   */
+  displayFormLabel(fieldName: string): string {
+    return this.formAttributes.setLabelName(this.fields, fieldName);
   }
 }

@@ -1,5 +1,31 @@
 <form [formGroup]="taskDialogueForm" class="form">
-    <div class="form__title">
-        
+  <div class="form__title">
+    <h4 class="form__title-text">Add task</h4>
+  </div>
+  <div class="form__body">
+    <div class="form__body--title">
+      <label for="title" class="form__body--title-label">{{
+        displayFormLabel("title")
+      }}</label>
+      <input
+        id="title"
+        formControlName="title"
+        type="text"
+        pInputText
+        class="form__body--title-field"
+      />
     </div>
+    <div class="form__body--note">
+      <label for="title" class="form__body--note-label">{{
+        displayFormLabel("note")
+      }}</label>
+      <input
+        id="note"
+        formControlName="note"
+        type="text"
+        pInputText
+        class="form__body--note-field"
+      />
+    </div>
+  </div>
 </form>
