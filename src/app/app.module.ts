@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DisplayComponent } from './display/display.component';
 import { FormComponent } from './components/form/form.component';
 import { ListComponent } from './components/list/list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddComponent } from './components/add/add.component';
 
 import { ButtonModule } from 'primeng/button';
@@ -16,6 +16,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
 
 const primeng = [
   ButtonModule,
@@ -24,7 +26,8 @@ const primeng = [
   ConfirmDialogModule,
   TooltipModule,
   ToastModule,
-  InputTextModule
+  InputTextModule,
+  DynamicDialogModule,
 ];
 @NgModule({
   declarations: [
@@ -33,8 +36,15 @@ const primeng = [
     FormComponent,
     ListComponent,
     AddComponent,
+    TaskDialogueComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ...primeng],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ...primeng,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
