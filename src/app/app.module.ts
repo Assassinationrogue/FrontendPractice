@@ -17,6 +17,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
 
 const primeng = [
@@ -28,6 +29,7 @@ const primeng = [
   ToastModule,
   InputTextModule,
   DynamicDialogModule,
+  InputTextareaModule
 ];
 @NgModule({
   declarations: [
