@@ -16,6 +16,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
 
 const primeng = [
   ButtonModule,
@@ -24,7 +26,8 @@ const primeng = [
   ConfirmDialogModule,
   TooltipModule,
   ToastModule,
-  InputTextModule
+  InputTextModule,
+  DynamicDialogModule
 ];
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ const primeng = [
     FormComponent,
     ListComponent,
     AddComponent,
+    TaskDialogueComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ...primeng],
   providers: [],

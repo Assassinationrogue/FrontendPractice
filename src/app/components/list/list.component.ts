@@ -18,11 +18,10 @@ export class ListComponent implements OnInit {
    * @returns void
    */
   addTask(): void {
-    this.listOfTask.push(
-      `${this.setSubscriptsOrdinals(this.counter)} new task added...`
-    );
+    // this.listOfTask.push(
+    //   `${this.setSubscriptsOrdinals(this.counter)} new task added...`
+    // );
     this.counter++;
-    console.log(this.listOfTask);
   }
 
   /**
