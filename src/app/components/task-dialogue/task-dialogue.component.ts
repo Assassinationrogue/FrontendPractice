@@ -79,4 +79,8 @@ export class TaskDialogueComponent implements OnInit {
   checkForInvalidity(fieldName:string):boolean{
     return this.formAttributes.isInvalid(this.taskDialogueForm,fieldName)
   }
+
+  sendTask(){
+    console.log(this.taskDialogueForm.getRawValue())
+  }
 }

@@ -1,33 +1,36 @@
-<form [formGroup]="taskDialogueForm" class="form">
+<form [formGroup]="taskDialogueForm" class="form" (ngSubmit)="sendTask()">
   <div class="form__title">
     <h4 class="form__title-text">Add task</h4>
   </div>
   <div class="form__body">
     <div class="form__body--title">
-      <label for="title" class="form__body--title-label">{{
-        displayFormLabel("title")
-      }}<span *ngIf="isRequired('title')" class="invalid">*</span></label>
+      <label for="title" class="form__body--title-label"
+        >{{ displayFormLabel("title")
+        }}<span *ngIf="isRequired('title')" class="invalid">*</span></label
+      >
       <input
         id="title"
         formControlName="title"
         type="text"
         pInputText
         class="form__body--title-field"
-        [ngClass]="{'invalid-field':checkForInvalidity('title')}"
+        [ngClass]="{ 'invalid-field': checkForInvalidity('title') }"
       />
     </div>
     <div class="form__body--note">
-      <label for="title" class="form__body--note-label">{{
-        displayFormLabel("note")
-      }}</label>
+      <label for="title" class="form__body--note-label"
+        >{{ displayFormLabel("note")
+        }}<span *ngIf="isRequired('title')" class="invalid">*</span></label
+      >
       <textarea
         id="note"
         formControlName="note"
         type="text"
         pInputTextarea
-        class="form__body--note-field ng-invalid"
+        class="form__body--note-field"
       >
       </textarea>
     </div>
   </div>
+  <button type="submit" pButton label="Add"></button>
 </form>
