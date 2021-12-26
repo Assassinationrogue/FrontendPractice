@@ -17,3 +17,11 @@ body {
   background-color: rgb(243, 241, 241);
   overflow: hidden;
 }
+
+.invalid {
+  color: rgb(241, 2, 2);
+
+  &-field {
+    border-color: rgb(241, 2, 2);
+  }
+}

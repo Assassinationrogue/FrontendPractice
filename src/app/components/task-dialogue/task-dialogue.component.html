@@ -6,13 +6,14 @@
     <div class="form__body--title">
       <label for="title" class="form__body--title-label">{{
         displayFormLabel("title")
-      }}</label>
+      }}<span *ngIf="isRequired('title')" class="invalid">*</span></label>
       <input
         id="title"
         formControlName="title"
         type="text"
         pInputText
         class="form__body--title-field"
+        [ngClass]="{'invalid-field':checkForInvalidity('title')}"
       />
     </div>
     <div class="form__body--note">
@@ -24,7 +25,7 @@
         formControlName="note"
         type="text"
         pInputTextarea
-        class="form__body--note-field"
+        class="form__body--note-field ng-invalid"
       >
       </textarea>
     </div>
