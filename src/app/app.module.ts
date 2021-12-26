@@ -19,6 +19,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const primeng = [
   ButtonModule,
@@ -46,6 +47,7 @@ const primeng = [
     ...primeng,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

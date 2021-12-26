@@ -1,14 +1,22 @@
+import { TaskDialogueComponent } from './../task-dialogue/task-dialogue.component';
 import { Component, OnInit } from '@angular/core';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'to-do-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
+  providers:[DialogService,MessageService]
 })
 export class ListComponent implements OnInit {
   counter: number = 1;
-  constructor() {}
+  constructor(
+    public dialogService: DialogService,
+    private messageService: MessageService
+  ) {}
   listOfTask = [];
+  ref: DynamicDialogRef;
 
   ngOnInit(): void {}
 
@@ -21,6 +29,7 @@ export class ListComponent implements OnInit {
     // this.listOfTask.push(
     //   `${this.setSubscriptsOrdinals(this.counter)} new task added...`
     // );
+    this.openAddTaskDialog(this.setSubscriptsOrdinals(this.counter));
     this.counter++;
   }
 
@@ -48,5 +57,27 @@ export class ListComponent implements OnInit {
         ordinals = `${counter}th`;
     }
     return ordinals;
+  }
+
+  /**
+   * opens add task dialog box
+   * @param subscriptedNumber string 
+   */
+  openAddTaskDialog(subscriptedNumber: string): void {
+    this.ref = this.dialogService.open(TaskDialogueComponent, {
+      header: 'Add task',
+      width: '70%',
+      baseZIndex: 10000,
+    });
+
+    this.ref.onClose.subscribe((task: any) => {
+      if (task) {
+        this.listOfTask.push(task);
+        this.messageService.add({
+          severity: 'info',
+          summary: `${subscriptedNumber} task added.`,
+        });
+      }
+    });
   }
 }
