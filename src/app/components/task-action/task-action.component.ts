@@ -31,7 +31,7 @@ export class TaskactionComponent implements OnInit {
     //   `${this.setSubscriptsOrdinals(this.counter)} new task added...`
     // );
     this.openAddTaskDialog(this.setSubscriptsOrdinals(this.counter));
-    this.counter++;
+    
   }
 
   /**
@@ -79,6 +79,7 @@ export class TaskactionComponent implements OnInit {
             severity: 'info',
             summary: `${subscriptedNumber} task added.`,
           });
+          this.counter++;
         } else {
           this.messageService.add({
             severity: 'error',
