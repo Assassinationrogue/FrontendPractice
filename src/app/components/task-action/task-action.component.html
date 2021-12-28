@@ -1,0 +1,13 @@
+<div class="task-list" *ngFor="let task of listOfTask">{{ task }}</div>
+<button
+  pButton
+  type="button"
+  label="Add"
+  class="p-button-outlined p-button-rounded"
+  icon="pi pi-plus"
+  pTooltip="Add new task"
+  tooltipPosition="bottom"
+  (click)="addNewTask()"
+></button>
+<p-toast></p-toast>
+<!-- <sb-task-dialogue></sb-task-dialogue> -->
