@@ -20,6 +20,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TaskTableComponent } from './components/task-action/task-table/task-table.component';
 
 const primeng = [
   ButtonModule,
@@ -40,6 +41,7 @@ const primeng = [
     TaskactionComponent,
     AddComponent,
     TaskDialogueComponent,
+    TaskTableComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
-<div class="task-list" *ngFor="let task of listOfTask">{{ task }}</div>
+<div class="task-list" *ngFor="let task of listOfTask">
+  <task-table [task]="task"></task-table>
+</div>
 <button
   pButton
   type="button"
