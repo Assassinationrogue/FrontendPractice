@@ -1,5 +1,7 @@
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { SharedService } from './../../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'sb-task-dialogue',
@@ -14,17 +16,22 @@ export class TaskDialogueComponent implements OnInit {
       identity: 'title',
       label: 'Title',
       notEditable: '0',
-      mandetory: 'true',
+      mandetory: '1',
     },
     note: {
       identity: 'note',
       label: 'Note',
       notEditable: '0',
-      mandetory: 'true',
+      mandetory: '1',
     },
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    public formAttributes: SharedService,
+    public ref: DynamicDialogRef,
+    public config: DynamicDialogConfig
+  ) {}
 
   ngOnInit(): void {
     this.taskDialogueForm = this.defineForm();
@@ -39,12 +46,48 @@ export class TaskDialogueComponent implements OnInit {
   private defineForm(): FormGroup {
     let formControls = {};
     Object.keys(this.fields).forEach((key) => {
-      formControls[key] = {
-        value: null,
-        disabled: Boolean(parseInt(this.fields[key]?.notEditable)),
-      };
+      formControls[key] = [
+        {
+          value: null,
+          disabled: Boolean(parseInt(this.fields[key]?.notEditable)),
+        },
+        parseInt(this.fields[key]['mandetory'])
+          ? Validators.required
+          : Validators.nullValidator,
+      ];
     });
-    console.log(formControls);
     return this.fb.group(formControls);
+  }
+
+  /**
+   * Displays label name
+   * @param fieldName string
+   * @returns string
+   */
+  displayFormLabel(fieldName: string): string {
+    return this.formAttributes.setLabelName(this.fields, fieldName);
+  }
+
+  /**
+   * Checks if field is required
+   * @param fieldName string
+   * @returns boolean
+   */
+  isRequired(fieldName: string): boolean {
+    return this.formAttributes.isRequired(this.taskDialogueForm, fieldName);
+  }
+
+  /**
+   * Checks if field is invalid
+   * @param fieldName string
+   * @returns booleam
+   */
+  checkForInvalidity(fieldName: string): boolean {
+    return this.formAttributes.isInvalid(this.taskDialogueForm, fieldName);
+  }
+
+  sendTask() {
+    this.ref.close(this.taskDialogueForm.getRawValue());
+    console.log(this.taskDialogueForm.getRawValue());
   }
 }
