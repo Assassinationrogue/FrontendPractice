@@ -1,3 +1,4 @@
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SharedService } from './../../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -25,7 +26,12 @@ export class TaskDialogueComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder, public formAttributes: SharedService) {}
+  constructor(
+    private fb: FormBuilder,
+    public formAttributes: SharedService,
+    public ref: DynamicDialogRef,
+    public config: DynamicDialogConfig
+  ) {}
 
   ngOnInit(): void {
     this.taskDialogueForm = this.defineForm();
@@ -67,8 +73,8 @@ export class TaskDialogueComponent implements OnInit {
    * @param fieldName string
    * @returns boolean
    */
-  isRequired(fieldName: string):boolean{
-    return this.formAttributes.isRequired(this.taskDialogueForm,fieldName);
+  isRequired(fieldName: string): boolean {
+    return this.formAttributes.isRequired(this.taskDialogueForm, fieldName);
   }
 
   /**
@@ -76,11 +82,12 @@ export class TaskDialogueComponent implements OnInit {
    * @param fieldName string
    * @returns booleam
    */
-  checkForInvalidity(fieldName:string):boolean{
-    return this.formAttributes.isInvalid(this.taskDialogueForm,fieldName)
+  checkForInvalidity(fieldName: string): boolean {
+    return this.formAttributes.isInvalid(this.taskDialogueForm, fieldName);
   }
 
-  sendTask(){
-    console.log(this.taskDialogueForm.getRawValue())
+  sendTask() {
+    this.ref.close(this.taskDialogueForm.getRawValue());
+    console.log(this.taskDialogueForm.getRawValue());
   }
 }
