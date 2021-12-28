@@ -89,6 +89,10 @@ export class TaskactionComponent implements OnInit {
       }
     });
   }
+
+  openTaskDialog(): void{
+    console.log("Hello")
+  }
 }
 
 
