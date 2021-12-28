@@ -6,8 +6,8 @@ import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'task-action',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './task-action.component.html',
+  styleUrls: ['./task-action.component.scss'],
   providers: [DialogService, MessageService],
 })
 export class TaskactionComponent implements OnInit {
