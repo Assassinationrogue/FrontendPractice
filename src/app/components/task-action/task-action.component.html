@@ -4,7 +4,10 @@
     class="task-table"
     (click)="openTaskDialog(task)"
   ></task-table>
-  <view-edit-task-popup [hasCalled]="viewTask"></view-edit-task-popup>
+  <view-edit-task-popup
+    [hasCalled]="viewTask"
+    [task]="task"
+  ></view-edit-task-popup>
 </div>
 <button
   pButton

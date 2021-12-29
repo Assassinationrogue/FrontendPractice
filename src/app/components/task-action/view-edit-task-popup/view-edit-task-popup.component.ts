@@ -1,3 +1,4 @@
+import { addTask } from 'src/app/model/task';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ViewEditTaskPopupComponent implements OnInit {
   @Input() hasCalled: boolean = false;
+  @Input() task: addTask;
   constructor() { }
 
   ngOnInit(): void {
