@@ -1,6 +1,7 @@
+import { ViewEditTaskPopupComponent } from './view-edit-task-popup/view-edit-task-popup.component';
 import { addTask } from '../../model/task';
 import { TaskDialogueComponent } from '../task-dialogue/task-dialogue.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 
@@ -10,8 +11,9 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./task-action.component.scss'],
   providers: [DialogService, MessageService],
 })
-export class TaskactionComponent implements OnInit {
+export class TaskactionComponent implements OnInit, OnDestroy {
   counter: number = 1;
+  viewTask: boolean;
   constructor(
     public dialogService: DialogService,
     private messageService: MessageService
@@ -31,7 +33,6 @@ export class TaskactionComponent implements OnInit {
     //   `${this.setSubscriptsOrdinals(this.counter)} new task added...`
     // );
     this.openAddTaskDialog(this.setSubscriptsOrdinals(this.counter));
-    
   }
 
   /**
@@ -90,10 +91,19 @@ export class TaskactionComponent implements OnInit {
     });
   }
 
-  openTaskDialog(): void{
-    console.log("Hello")
+  /**
+   * Opens view edit popup
+   * @param task addTask
+   * @returns void
+   */
+  openTaskDialog(task: addTask): void {
+    this.viewTask = !undefined;
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.ref.onClose;
   }
 }
-
 
 // !(task.title === '' && task.note === '') ||

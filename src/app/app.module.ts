@@ -18,6 +18,7 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DialogModule } from 'primeng/dialog';
 import { TaskDialogueComponent } from './components/task-dialogue/task-dialogue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskTableComponent } from './components/task-action/task-table/task-table.component';
@@ -32,7 +33,8 @@ const primeng = [
   ToastModule,
   InputTextModule,
   DynamicDialogModule,
-  InputTextareaModule
+  InputTextareaModule,
+  DialogModule
 ];
 @NgModule({
   declarations: [
