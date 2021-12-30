@@ -1,7 +1,13 @@
 import { ViewEditTaskPopupComponent } from './view-edit-task-popup/view-edit-task-popup.component';
 import { addTask } from '../../model/task';
 import { TaskDialogueComponent } from '../task-dialogue/task-dialogue.component';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 
@@ -18,7 +24,7 @@ export class TaskactionComponent implements OnInit, OnDestroy {
     public dialogService: DialogService,
     private messageService: MessageService
   ) {}
-  listOfTask = [];
+  listOfTask = [{title:"Exercise",note:"Do exercise for 1hr."}];
   ref: DynamicDialogRef;
 
   ngOnInit(): void {}
@@ -29,9 +35,6 @@ export class TaskactionComponent implements OnInit, OnDestroy {
    * @returns void
    */
   addNewTask(): void {
-    // this.listOfTask.push(
-    //   `${this.setSubscriptsOrdinals(this.counter)} new task added...`
-    // );
     this.openAddTaskDialog(this.setSubscriptsOrdinals(this.counter));
   }
 
@@ -98,6 +101,7 @@ export class TaskactionComponent implements OnInit, OnDestroy {
    */
   openTaskDialog(task: addTask): void {
     this.viewTask = !undefined;
+  
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
