@@ -21,6 +21,7 @@
     &-title {
       //text-shadow: 3px 1px 5px grey;
       color: rgb(105, 105, 105);
+      user-select: none;
     }
   }
 
@@ -31,6 +32,7 @@
 
 .search {
   //background-color: bisque;
+  user-select: none;
   width: 80%;
   display: flex;
   align-items: center;

@@ -1,5 +1,19 @@
-.taskCard{
-    padding: 1.02em 1.55em;
-    border-radius: 12.5px;
-    border: 2px solid rgb(170, 168, 168);
+.taskCard {
+  padding: 1.02em 1.55em;
+  border-radius: 12.5px;
+  border: 2px solid #e0dbdbc7;
+  user-select: none;
+  background-color: #f6f6f68c;
+  transition: all 0.3s;
+  &:hover {
+    border: 2px solid #cfccccc7;
+    background-color: #ffffff;
+  }
+
+  &-title {
+    margin: 0.35em 0em;
+  }
+  &-note {
+    margin: 0.25em 0em;
+  }
 }
