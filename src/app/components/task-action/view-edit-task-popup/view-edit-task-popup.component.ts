@@ -1,5 +1,5 @@
 import { addTask } from 'src/app/model/task';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'view-edit-task-popup',
@@ -7,9 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./view-edit-task-popup.component.scss'],
 })
 export class ViewEditTaskPopupComponent implements OnInit {
+  @Output() closed = new EventEmitter<boolean>();
   @Input() set hasCalled(value: boolean) {
+
     if (value) {
-      this.togglePopup();
+      this.togglePopup(value);
     }
   }
   @Input() task: addTask;
@@ -17,7 +19,11 @@ export class ViewEditTaskPopupComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  togglePopup(): void {
-    document.getElementById('popup-1').classList.toggle('active');
+  togglePopup(toggle: boolean): void {
+    
+      document.getElementById('popup-1').classList.toggle('active');
+    if(!toggle){
+      this.closed.emit(toggle);
+    }
   }
 }
