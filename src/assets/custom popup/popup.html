@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css">
+    <title>Custom popup</title>
+  </head>
+  <body>
+    <div class="popup" id="popup-1">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <h1>Title</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+          repudiandae distinctio eius et necessitatibus delectus unde veritatis.
+          Minus ipsum officia nobis sequi aliquam, sint est excepturi nihil
+          iusto possimus voluptate autem nemo dicta doloremque quia? Quibusdam
+          adipisci, nemo a optio odit aliquid quia doloribus vitae nihil ipsa
+          iste laborum tenetur.
+        </p>
+      </div>
+    </div>
+
+    <button onclick="togglePopup()">Show popup</button>
+  </body>
+  <script src="popup.js"></script>
+</html>
