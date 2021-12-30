@@ -1,7 +1,7 @@
 <div class="popup" id="popup-1">
   <div class="overlay"></div>
   <div class="content">
-    <div class="close-btn" click="togglePopup()">&times;</div>
+    <button class="close-btn" (click)="togglePopup(false)">&times;</button>
     <h1>{{ task?.title }}</h1>
     <p>
      {{ task?.note }}
