@@ -1,9 +1,10 @@
-<p-dialog [(visible)]="hasCalled">
-    <ng-template pTemplate="header">
-        Header content here
-    </ng-template>
-    Content
-    <ng-template pTemplate="footer">
-        //buttons
-    </ng-template>
-</p-dialog>
+<div class="popup" id="popup-1">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="close-btn" click="togglePopup()">&times;</div>
+    <h1>{{ task?.title }}</h1>
+    <p>
+     {{ task?.note }}
+    </p>
+  </div>
+</div>
