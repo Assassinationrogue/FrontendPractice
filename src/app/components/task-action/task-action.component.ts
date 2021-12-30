@@ -18,14 +18,14 @@ import { MessageService } from 'primeng/api';
   providers: [DialogService, MessageService],
 })
 export class TaskactionComponent implements OnInit, OnDestroy {
-  counter: number = 1;
+  private counter: number = 1;
   viewTask: boolean;
   constructor(
     public dialogService: DialogService,
     private messageService: MessageService
   ) {}
-  listOfTask = [{title:"Exercise",note:"Do exercise for 1hr."}];
-  ref: DynamicDialogRef;
+  listOfTask = [{ title: 'Exercise', note: 'Do exercise for 1hr.' }];
+  private ref: DynamicDialogRef;
 
   ngOnInit(): void {}
 
@@ -101,7 +101,6 @@ export class TaskactionComponent implements OnInit, OnDestroy {
    */
   openTaskDialog(task: addTask): void {
     this.viewTask = !undefined;
-  
   }
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
