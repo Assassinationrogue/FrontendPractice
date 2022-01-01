@@ -1,12 +1,9 @@
-import { ViewEditTaskPopupComponent } from './view-edit-task-popup/view-edit-task-popup.component';
 import { addTask } from '../../model/task';
 import { TaskDialogueComponent } from '../task-dialogue/task-dialogue.component';
 import {
   Component,
   OnInit,
   OnDestroy,
-  Output,
-  EventEmitter,
 } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
