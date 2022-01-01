@@ -43,7 +43,15 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
   @Input() taskIndex: number;
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+
+  /**
+   * Closes popup when escape button is pressed
+   * @param none
+   * @returns void
+   */
+  private closePopupOnEscape(): void {
     window.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && this.popupState) {
         this.togglePopup(false);
@@ -72,7 +80,7 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
    * @param none
    * @returns void
    */
-  getPopupValue():void {
+  getPopupValue(): void {
     this.editedValue.emit({
       index: this.taskIndex,
       title: document.querySelector('.content__sub-header--title').innerHTML,
