@@ -1,5 +1,7 @@
 import { addTask } from 'src/app/model/task';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'view-edit-task-popup',
@@ -9,16 +11,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ViewEditTaskPopupComponent implements OnInit {
   @Output() closed = new EventEmitter<boolean>();
   @Output() editedValue = new EventEmitter<addTask>();
-  @Input() set hasCalled(value: boolean) {
+  @Input() set hasCalled(value: Observable<boolean>) {
     if (value) {
-      this.togglePopup(value);
+      value.pipe(take(1)).subscribe((state) => console.log(state));
     }
   }
   @Input() task: addTask;
   @Input() taskIndex: number;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.hasCalled.subscribe((data) => this.togglePopup(data));
+  }
 
   /**
    * Toggles the popup
