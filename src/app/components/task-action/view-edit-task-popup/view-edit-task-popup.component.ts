@@ -37,7 +37,7 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
     this._task = value;
     if (value) {
       this.taskList.push(value);
-      console.log(this.taskList);
+      this.closePopupOnEscape();
     }
   }
   @Input() taskIndex: number;
