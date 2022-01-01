@@ -16,41 +16,54 @@ import { take, tap, map } from 'rxjs/operators';
   styleUrls: ['./view-edit-task-popup.component.scss'],
 })
 export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
-  subscription: Subscription = new Subscription;
+  subscription: Subscription = new Subscription();
+  private popupState: boolean;
   @Output() closed = new EventEmitter<boolean>();
   @Output() editedValue = new EventEmitter<addTask>();
   @Input() set hasCalled(value: Observable<boolean>) {
     if (value) {
-      this.subscription.add(value.subscribe((state) => this.togglePopup(state)));
+      this.subscription.add(
+        value.subscribe((state) => this.togglePopup(state))
+      );
     }
   }
 
+  taskList: addTask[] = [];
   private _task: addTask;
   get task(): addTask {
     return this._task;
   }
   @Input() set task(value: addTask) {
-    console.log(value);
     this._task = value;
+    if (value) {
+      this.taskList.push(value);
+      console.log(this.taskList);
+    }
   }
   @Input() taskIndex: number;
   constructor() {}
 
   ngOnInit(): void {
-    // this.hasCalled.subscribe((data) => this.togglePopup(data));
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && this.popupState) {
+        this.togglePopup(false);
+      }
+    });
   }
 
   /**
-   * Toggles the popup
+   * Toggles the popup, set popupState true if popup is open else false
    * @param state boolean
    * @returns void
    */
   togglePopup(state: boolean): void {
     if (!state) {
       this.closed.emit(state);
+      this.popupState = state;
       document.getElementById('popup-1').classList.remove('active');
     } else {
       document.getElementById('popup-1').classList.add('active');
+      this.popupState = state;
     }
   }
 
