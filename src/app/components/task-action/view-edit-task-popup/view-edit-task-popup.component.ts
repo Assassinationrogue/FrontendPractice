@@ -8,12 +8,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ViewEditTaskPopupComponent implements OnInit {
   @Output() closed = new EventEmitter<boolean>();
+  @Output() editedValue = new EventEmitter<addTask>();
   @Input() set hasCalled(value: boolean) {
     if (value) {
       this.togglePopup(value);
     }
   }
   @Input() task: addTask;
+  @Input() taskIndex: number;
   constructor() {}
 
   ngOnInit(): void {}
@@ -28,5 +30,14 @@ export class ViewEditTaskPopupComponent implements OnInit {
     if (!state) {
       this.closed.emit(state);
     }
+  }
+
+  getPopupValue() {
+    this.editedValue.emit({
+      index: this.taskIndex,
+      title: document.querySelector('.content__sub-header--title').innerHTML,
+      note: document.querySelector('.content__sub-header--note').innerHTML,
+    });
+    this.togglePopup(false);
   }
 }
