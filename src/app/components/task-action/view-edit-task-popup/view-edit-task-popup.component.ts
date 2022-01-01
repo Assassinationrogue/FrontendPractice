@@ -29,6 +29,4 @@ export class ViewEditTaskPopupComponent implements OnInit {
       this.closed.emit(state);
     }
   }
-
-  popup
 }
