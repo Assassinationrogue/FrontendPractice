@@ -67,7 +67,12 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
     }
   }
 
-  getPopupValue() {
+  /**
+   * Gets current popup value
+   * @param none
+   * @returns void
+   */
+  getPopupValue():void {
     this.editedValue.emit({
       index: this.taskIndex,
       title: document.querySelector('.content__sub-header--title').innerHTML,
