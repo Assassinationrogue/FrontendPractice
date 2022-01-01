@@ -1,10 +1,19 @@
 <div class="popup" id="popup-1">
   <div class="overlay" (click)="togglePopup(false)"></div>
   <div class="content">
-    <button class="close-btn" (click)="togglePopup(false)">&times;</button>
-    <h1>{{ task?.title }}</h1>
-    <p>
-      {{ task?.note }}
-    </p>
+    <div class="content__header">
+      <button class="close-btn" (click)="togglePopup(false)">&times;</button>
+    </div>
+    <div class="content__sub-header">
+      <h1 contenteditable="true">{{ task?.title }}</h1>
+    </div>
+    <div class="content__body">
+      <p contenteditable="true">
+        {{ task?.note }}
+      </p>
+    </div>
+    <div class="content__footer">
+      <button pButton label="Save"></button>
+    </div>
   </div>
 </div>
