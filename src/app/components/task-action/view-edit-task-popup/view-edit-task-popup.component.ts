@@ -15,6 +15,7 @@ export class ViewEditTaskPopupComponent implements OnInit {
     }
   }
   @Input() task: addTask;
+  @Input() taskIndex: number;
   constructor() {}
 
   ngOnInit(): void {}
@@ -33,6 +34,7 @@ export class ViewEditTaskPopupComponent implements OnInit {
 
   getPopupValue() {
     this.editedValue.emit({
+      index: this.taskIndex,
       title: document.querySelector('.content__sub-header--title').innerHTML,
       note: document.querySelector('.content__sub-header--note').innerHTML,
     });
