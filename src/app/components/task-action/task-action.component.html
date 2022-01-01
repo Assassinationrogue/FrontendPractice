@@ -2,10 +2,10 @@
   <task-table
     [task]="task"
     class="task-table"
-    (click)="openTaskDialog(false)"
+    (click)="openTaskDialog(true)"
   ></task-table>
   <view-edit-task-popup
-    [hasCalled]="viewTask"
+    [hasCalled]="taskPopup.asObservable()"
     [task]="task"
     [taskIndex]="i"
     (closed)="viewTask = false"
