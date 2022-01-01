@@ -1,18 +1,18 @@
 <div class="popup" id="popup-1">
   <div class="overlay" (click)="togglePopup(false)"></div>
   <div class="content">
-    <div class="content__header pt-2 pb-2">
+    <div class="content__header pt-5 pb-5">
       <button class="close-btn" (click)="togglePopup(false)">&times;</button>
     </div>
-    <div class="content__sub-header pt-2 pb-2">
+    <div class="content__sub-header pt-5 pb-5">
       <h1 contenteditable="true">{{ task?.title }}</h1>
     </div>
-    <div class="content__body pt-2 pb-2">
+    <div class="content__body pt-5 pb-5">
       <p contenteditable="true">
         {{ task?.note }}
       </p>
     </div>
-    <div class="content__footer pt-2 pb-2">
+    <div class="content__footer pt-5 pb-5">
       <button pButton label="Save"></button>
     </div>
   </div>
