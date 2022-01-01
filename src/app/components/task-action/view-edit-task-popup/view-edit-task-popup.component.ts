@@ -9,7 +9,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ViewEditTaskPopupComponent implements OnInit {
   @Output() closed = new EventEmitter<boolean>();
   @Input() set hasCalled(value: boolean) {
-
     if (value) {
       this.togglePopup(value);
     }
@@ -19,11 +18,15 @@ export class ViewEditTaskPopupComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  togglePopup(toggle: boolean): void {
-    
-      document.getElementById('popup-1').classList.toggle('active');
-    if(!toggle){
-      this.closed.emit(toggle);
+  /**
+   * Toggles the popup
+   * @param state boolean
+   * @returns void
+   */
+  togglePopup(state: boolean): void {
+    document.getElementById('popup-1').classList.toggle('active');
+    if (!state) {
+      this.closed.emit(state);
     }
   }
 }
