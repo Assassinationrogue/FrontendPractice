@@ -2,7 +2,7 @@
   <task-table
     [task]="task"
     class="task-table"
-    (click)="openTaskDialog(true)"
+    (click)="openTaskDialog(true, task)"
   ></task-table>
   <view-edit-task-popup
     [hasCalled]="taskPopup.asObservable()"

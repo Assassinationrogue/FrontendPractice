@@ -14,6 +14,7 @@ import { Subject } from 'rxjs';
 export class TaskactionComponent implements OnInit, OnDestroy {
   private counter: number = 1;
   taskPopup: Subject<boolean> = new Subject<boolean>();
+  popupValue: Subject<addTask> = new Subject<addTask>();
   viewTask: boolean;
   constructor(
     public dialogService: DialogService,
@@ -94,12 +95,13 @@ export class TaskactionComponent implements OnInit, OnDestroy {
 
   /**
    * Opens view edit popup
-   * @param task addTask
+   * @param state addTask
    * @returns void
    */
-  openTaskDialog(task: boolean): void {
-    this.taskPopup.next(task);
-    this.viewTask = !task;
+  openTaskDialog(state: boolean, task:addTask): void {
+    this.taskPopup.next(state);
+    this.popupValue.next(task);
+    this.viewTask = !state;
   }
 
   getEditedValue(task: addTask) {
