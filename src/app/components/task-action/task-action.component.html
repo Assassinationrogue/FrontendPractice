@@ -1,13 +1,15 @@
-<div class="task-list" *ngFor="let task of listOfTask">
+<div class="task-list" *ngFor="let task of listOfTask; let i = index">
   <task-table
     [task]="task"
     class="task-table"
-    (click)="openTaskDialog(task)"
+    (click)="openTaskDialog(false)"
   ></task-table>
   <view-edit-task-popup
     [hasCalled]="viewTask"
     [task]="task"
+    [taskIndex]="i"
     (closed)="viewTask = false"
+    (editedValue)="getEditedValue($event)"
   ></view-edit-task-popup>
 </div>
 <button
