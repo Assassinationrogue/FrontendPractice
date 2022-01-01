@@ -3,6 +3,7 @@ import { TaskDialogueComponent } from '../task-dialogue/task-dialogue.component'
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'task-action',
@@ -12,12 +13,16 @@ import { MessageService } from 'primeng/api';
 })
 export class TaskactionComponent implements OnInit, OnDestroy {
   private counter: number = 1;
+  taskPopup: Subject<boolean> = new Subject<boolean>();
   viewTask: boolean;
   constructor(
     public dialogService: DialogService,
     private messageService: MessageService
   ) {}
-  listOfTask = [];
+  listOfTask = [
+    { title: 'Exercise', note: 'Do exercise for 1hr.' },
+    { title: 'Greet', note: 'Greet the guest at ceremony.' },
+  ];
   private ref: DynamicDialogRef;
 
   ngOnInit(): void {}
@@ -93,6 +98,7 @@ export class TaskactionComponent implements OnInit, OnDestroy {
    * @returns void
    */
   openTaskDialog(task: boolean): void {
+    this.taskPopup.next(task);
     this.viewTask = !task;
   }
 
