@@ -119,5 +119,3 @@ export class TaskactionComponent implements OnInit, OnDestroy {
     this.ref.onClose;
   }
 }
-
-// !(task.title === '' && task.note === '') ||
