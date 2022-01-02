@@ -7,7 +7,7 @@
   <view-edit-task-popup
     [hasCalled]="taskPopup.asObservable()"
     [taskValue]="popupValue.asObservable()"
-    [taskIndex]="listOfTask.length"
+    [taskIndex]="currentTaskIndex"
     (closed)="viewTask = false"
     (editedValue)="getEditedValue($event)"
   ></view-edit-task-popup>
