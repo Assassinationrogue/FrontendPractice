@@ -13,7 +13,9 @@ import { Subject } from 'rxjs';
 })
 export class TaskactionComponent implements OnInit, OnDestroy {
   private counter: number = 1;
+  currentTaskIndex: number;
   taskPopup: Subject<boolean> = new Subject<boolean>();
+  popupValue: Subject<addTask> = new Subject<addTask>();
   viewTask: boolean;
   constructor(
     public dialogService: DialogService,
@@ -94,18 +96,31 @@ export class TaskactionComponent implements OnInit, OnDestroy {
 
   /**
    * Opens view edit popup
+   * @param state addTask
+   * @returns void
+   */
+  openTaskDialog(state: boolean, task:addTask): void {
+    this.taskPopup.next(state);
+    this.popupValue.next(task);
+    this.viewTask = !state;
+    this.currentTaskIndex = this.listOfTask.indexOf(task);
+  }
+
+  /**
+   * Gets the edited value
    * @param task addTask
    * @returns void
    */
-  openTaskDialog(task: boolean): void {
-    this.taskPopup.next(task);
-    this.viewTask = !task;
-  }
-
-  getEditedValue(task: addTask) {
+  getEditedValue(task: addTask): void {
     this.setEditValue({ title: task.title, note: task.note }, task.index);
   }
 
+  /**
+   * sets the edited value
+   * @param task addTask
+   * @param index index
+   * @returns void
+   */
   private setEditValue(task: addTask, index: number): void {
     this.listOfTask[index] = task;
   }
@@ -115,5 +130,3 @@ export class TaskactionComponent implements OnInit, OnDestroy {
     this.ref.onClose;
   }
 }
-
-// !(task.title === '' && task.note === '') ||
