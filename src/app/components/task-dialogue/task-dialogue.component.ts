@@ -85,7 +85,12 @@ export class TaskDialogueComponent implements OnInit {
     return this.formAttributes.isInvalid(this.taskDialogueForm, fieldName);
   }
   
-  sendTask() {
+  /**
+   * Sends raw form value to task card
+   * @param none
+   * @returns void
+   */
+  sendTask(): void {
     this.ref.close(this.taskDialogueForm.getRawValue());
   }
 }
