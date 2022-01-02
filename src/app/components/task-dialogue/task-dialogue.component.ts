@@ -35,7 +35,6 @@ export class TaskDialogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskDialogueForm = this.defineForm();
-    console.log(this.taskDialogueForm);
   }
 
   /**
@@ -85,9 +84,8 @@ export class TaskDialogueComponent implements OnInit {
   checkForInvalidity(fieldName: string): boolean {
     return this.formAttributes.isInvalid(this.taskDialogueForm, fieldName);
   }
-
+  
   sendTask() {
     this.ref.close(this.taskDialogueForm.getRawValue());
-    console.log(this.taskDialogueForm.getRawValue());
   }
 }
