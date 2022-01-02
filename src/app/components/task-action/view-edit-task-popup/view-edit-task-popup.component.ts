@@ -17,7 +17,9 @@ import { take, tap, map } from 'rxjs/operators';
   templateUrl: './view-edit-task-popup.component.html',
   styleUrls: ['./view-edit-task-popup.component.scss'],
 })
-export class ViewEditTaskPopupComponent implements OnInit,OnChanges ,OnDestroy {
+export class ViewEditTaskPopupComponent
+  implements OnInit, OnChanges, OnDestroy
+{
   subscription: Subscription = new Subscription();
   @Input() taskValue: Observable<addTask>;
   private popupState: boolean;
@@ -31,7 +33,7 @@ export class ViewEditTaskPopupComponent implements OnInit,OnChanges ,OnDestroy {
     }
   }
 
-  task:addTask;
+  task: addTask;
   private _initialValue: addTask[];
   get initialValue(): addTask[] {
     return this._initialValue;
@@ -48,6 +50,7 @@ export class ViewEditTaskPopupComponent implements OnInit,OnChanges ,OnDestroy {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.closePopupOnEscape();
     this.subscription.add(
       this.taskValue.pipe(take(1)).subscribe((data) => {
         this.task = data;
