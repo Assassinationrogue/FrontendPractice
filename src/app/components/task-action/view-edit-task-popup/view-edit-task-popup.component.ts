@@ -10,7 +10,7 @@ import {
   OnChanges,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { take, tap, map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'view-edit-task-popup',
