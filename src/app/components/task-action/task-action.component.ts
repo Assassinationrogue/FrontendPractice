@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 })
 export class TaskactionComponent implements OnInit, OnDestroy {
   private counter: number = 1;
+  currentTaskIndex: number;
   taskPopup: Subject<boolean> = new Subject<boolean>();
   popupValue: Subject<addTask> = new Subject<addTask>();
   viewTask: boolean;
@@ -102,6 +103,7 @@ export class TaskactionComponent implements OnInit, OnDestroy {
     this.taskPopup.next(state);
     this.popupValue.next(task);
     this.viewTask = !state;
+    this.currentTaskIndex = this.listOfTask.indexOf(task);
   }
 
   getEditedValue(task: addTask) {
