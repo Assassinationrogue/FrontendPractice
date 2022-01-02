@@ -106,10 +106,21 @@ export class TaskactionComponent implements OnInit, OnDestroy {
     this.currentTaskIndex = this.listOfTask.indexOf(task);
   }
 
-  getEditedValue(task: addTask) {
+  /**
+   * Gets the edited value
+   * @param task addTask
+   * @returns void
+   */
+  getEditedValue(task: addTask): void {
     this.setEditValue({ title: task.title, note: task.note }, task.index);
   }
 
+  /**
+   * sets the edited value
+   * @param task addTask
+   * @param index index
+   * @returns void
+   */
   private setEditValue(task: addTask, index: number): void {
     this.listOfTask[index] = task;
   }
