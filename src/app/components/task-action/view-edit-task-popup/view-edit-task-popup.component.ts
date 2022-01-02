@@ -6,6 +6,8 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
+  SimpleChanges,
+  OnChanges,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { take, tap, map } from 'rxjs/operators';
@@ -15,8 +17,9 @@ import { take, tap, map } from 'rxjs/operators';
   templateUrl: './view-edit-task-popup.component.html',
   styleUrls: ['./view-edit-task-popup.component.scss'],
 })
-export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
+export class ViewEditTaskPopupComponent implements OnInit,OnChanges ,OnDestroy {
   subscription: Subscription = new Subscription();
+  @Input() taskValue: Observable<addTask>;
   private popupState: boolean;
   @Output() closed = new EventEmitter<boolean>();
   @Output() editedValue = new EventEmitter<addTask>();
@@ -28,15 +31,14 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
     }
   }
 
-  taskList: addTask[] = [];
-  private _task: addTask;
-  get task(): addTask {
-    return this._task;
+  task:addTask;
+  private _initialValue: addTask[];
+  get initialValue(): addTask[] {
+    return this._initialValue;
   }
-  @Input() set task(value: addTask) {
-    this._task = value;
+  @Input() set initialValue(value: addTask[]) {
+    this._initialValue = value;
     if (value) {
-      this.taskList.push(value);
       this.closePopupOnEscape();
     }
   }
@@ -45,6 +47,13 @@ export class ViewEditTaskPopupComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.subscription.add(
+      this.taskValue.pipe(take(1)).subscribe((data) => {
+        this.task = data;
+      })
+    );
+  }
 
   /**
    * Closes popup when escape button is pressed
