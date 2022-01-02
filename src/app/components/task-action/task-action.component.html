@@ -3,14 +3,15 @@
     [task]="task"
     class="task-table"
     (click)="openTaskDialog(true, task)"
-  ></task-table></div>
-  <view-edit-task-popup
-    [hasCalled]="taskPopup.asObservable()"
-    [taskValue]="popupValue.asObservable()"
-    [taskIndex]="currentTaskIndex"
-    (closed)="viewTask = false"
-    (editedValue)="getEditedValue($event)"
-  ></view-edit-task-popup>
+  ></task-table>
+</div>
+<view-edit-task-popup
+  [hasCalled]="taskPopup.asObservable()"
+  [taskValue]="popupValue.asObservable()"
+  [taskIndex]="currentTaskIndex"
+  (closed)="viewTask = false"
+  (editedValue)="getEditedValue($event)"
+></view-edit-task-popup>
 
 <button
   pButton
