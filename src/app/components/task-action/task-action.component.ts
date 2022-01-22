@@ -99,7 +99,7 @@ export class TaskactionComponent implements OnInit, OnDestroy {
    * @param state addTask
    * @returns void
    */
-  openTaskDialog(state: boolean, task:addTask): void {
+  openTaskDialog(state: boolean, task: addTask): void {
     this.taskPopup.next(state);
     this.popupValue.next(task);
     this.viewTask = !state;

@@ -10,4 +10,8 @@ export class DisplayComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  disableState(){
+    console.log("Was called on hover")
+  }
 }

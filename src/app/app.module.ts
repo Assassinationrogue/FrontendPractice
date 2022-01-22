@@ -1,3 +1,4 @@
+import { ShopsBeePopupDirective } from './Directives/p-popup.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskTableComponent } from './components/task-action/task-table/task-table.component';
 import { ViewEditTaskPopupComponent } from './components/task-action/view-edit-task-popup/view-edit-task-popup.component';
 
+
 const primeng = [
   ButtonModule,
   CheckboxModule,
@@ -46,6 +48,8 @@ const primeng = [
     TaskDialogueComponent,
     TaskTableComponent,
     ViewEditTaskPopupComponent,
+    ShopsBeePopupDirective,
+    
   ],
   imports: [
     BrowserModule,
